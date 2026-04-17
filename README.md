@@ -1,4 +1,6 @@
-# Prompt Explorer
+# Prompt Browser
+
+**Live site → [promptbrowser.cc](https://promptbrowser.cc)**
 
 A fast, browsable UI over a 30-vendor archive of leaked and published **system prompts and tool schemas** from the AI coding agents shaping how we ship software — Cursor, v0, Claude Code, Codex CLI, Devin, Windsurf, Replit, Warp, VSCode Agent, and more.
 
@@ -29,9 +31,9 @@ Read the prompts, search every line, diff how a single agent's prompt evolved ac
 
 ```
 .
-├── prompts/             # The archive — one directory per vendor (Cursor, v0, …)
-├── prompt-explorer/     # The Next.js app
-└── assets/              # Brand assets used by the original archive
+├── prompts/           # The archive — one directory per vendor (Cursor, v0, …)
+├── prompt-explorer/   # The Next.js app
+└── assets/            # Brand assets used by the original archive
 ```
 
 The data loader walks `prompts/` at build time, so nothing is duplicated and adding a new vendor is just a `git mv`.
@@ -60,7 +62,7 @@ npm start
 |---|---|
 | `/` | Vendor grid + name filter |
 | `/[vendor]` | Vendor detail with file viewer |
-| `/[vendor]/compare?a=…&b=…&mode=diff\|side` | Compare two prompts in a vendor |
+| `/[vendor]/compare?a=…&b=…&mode=diffside` | Compare two prompts in a vendor |
 | `/search?q=…` | Full-text search across every prompt |
 | `/api/search` | JSON endpoint backing the search page |
 
@@ -73,4 +75,4 @@ npm start
 
 ## Credits
 
-The prompt corpus is collected by [@x1xhlol](https://github.com/x1xhlol). This fork adds the `prompt-explorer` app and the `prompts/` reorganization.
+The prompt corpus is collected by [@x1xhlol](https://github.com/x1xhlol). This repo adds the `prompt-explorer` app and the `prompts/` reorganization.
