@@ -18,7 +18,13 @@ export type Vendor = {
   categories: string[];
 };
 
-const REPO_ROOT = path.resolve(process.cwd(), "..", "prompts");
+function resolveRepoRoot(): string {
+  const localPrompts = path.resolve(process.cwd(), "prompts");
+  if (fs.existsSync(localPrompts)) return localPrompts;
+  return path.resolve(process.cwd(), "..", "prompts");
+}
+
+const REPO_ROOT = resolveRepoRoot();
 
 function classifyFile(name: string): PromptFile["kind"] {
   const lower = name.toLowerCase();

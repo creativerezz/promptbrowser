@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sparkles, Search } from "lucide-react";
+import { Search } from "lucide-react";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prompt Explorer",
+  title: "PromptBrowser",
   description: "Browse leaked & published system prompts from 30+ AI coding agents.",
 };
 
@@ -20,11 +21,8 @@ export default function RootLayout({
           <div className="relative flex min-h-screen flex-col">
             <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
               <div className="mx-auto flex h-14 w-full max-w-6xl items-center justify-between px-4 sm:px-6">
-                <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                    <Sparkles className="h-3.5 w-3.5" />
-                  </span>
-                  Prompt Explorer
+                <Link href="/" className="font-semibold tracking-tight">
+                  PromptBrowser
                 </Link>
                 <div className="flex items-center gap-3">
                   <Link
@@ -53,6 +51,7 @@ export default function RootLayout({
               </div>
             </footer>
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
